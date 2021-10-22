@@ -1,8 +1,8 @@
-/*************** global init **************/
-// require('dotenv').config()
+/*************** dotenv init **************/
 require('./modules/dotenv-init')()
-console.log(process.env)
-const port = process.env.PORT
+
+
+/*************** global init **************/
 const path = require('path')
 const express = require('express')
 const app = express()
@@ -13,7 +13,7 @@ const { sequelize } = require('./models')
 require('./modules/server-init')(app, process.env.PORT)
 
 /*************** sequelize init **************/
-sequelize.sync({ force: true }) // 실제DBMNS랑 연동시켜줘
+require('./modules/sequelize-init')(sequelize)
 
 /************** view engine ***************/
 app.set('view engine', 'ejs')
