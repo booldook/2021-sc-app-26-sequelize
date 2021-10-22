@@ -23,11 +23,18 @@ module.exports = (sequelize, DataType) => {
     collate: 'utf8_general_ci',
     tableName: 'board',
     timestamps: true,
-    paranoid: true,
+    // paranoid: true,
   });
 
   Board.associate = (models) => {
-    Board.belongsTo(models.User, { foreignKey: 'user_id', sourceKey: 'id' })
+    Board.belongsTo(models.User, { 
+      foreignKey: {
+        name: 'user_id',
+        allowNull: false,
+      }, 
+      sourceKey: 'id', 
+      onDelete: 'CASCADE' 
+    })
   }
 
   return Board;
