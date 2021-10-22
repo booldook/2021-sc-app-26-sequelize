@@ -1,38 +1,34 @@
 module.exports = (sequelize, DataType) => {
-  // define(객체명, 객체속성, 객체옵션)
-  const Users = sequelize.define('Users', {
+  const Board = sequelize.define('Board', {
     id: {
       type: DataType.INTEGER(10).UNSIGNED,
       primaryKey: true,
       autoIncrement: true,
       allowNull: false,
     },
-    userid: {
-      type: DataType.STRING(24),
-      allowNull: false,
-      unique: true,
-    },
-    userpw: {
+    writer: {
       type: DataType.STRING(255),
       allowNull: false,
     },
-    username: {
+    title: {
       type: DataType.STRING(255),
       allowNull: false,
     },
-    email: {
-      type: DataType.STRING(255),
+    content: {
+      type: DataType.TEXT,
       allowNull: false,
-      validate: {
-        isEmail: true,
-      }
     },
   }, {
     charset: 'utf8',
     collate: 'utf8_general_ci',
-    tableName: 'users',
+    tableName: 'board',
     timestamps: true,
     paranoid: true,
   });
-  return Users;
+
+  Board.associate = (models) => {
+    Board.belongsTo(models.User, { foreignKey: 'user_id', sourceKey: 'id' })
+  }
+
+  return Board;
 };
