@@ -36,5 +36,5 @@ flush privileges;
 -- MySQL 8.x
 create user 'board'@'%' identified by '000000';
 grant all privileges on board.* to 'board'@'%' with grant option;
-flush previleges;
+flush privileges;
 ```
