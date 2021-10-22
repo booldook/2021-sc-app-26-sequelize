@@ -13,7 +13,7 @@ const { sequelize } = require('./models')
 require('./modules/server-init')(app, process.env.PORT)
 
 /*************** sequelize init **************/
-sequelize.sync()
+sequelize.sync({ force: true }) // 실제DBMNS랑 연동시켜줘
 
 /************** view engine ***************/
 app.set('view engine', 'ejs')
