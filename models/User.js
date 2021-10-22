@@ -32,7 +32,7 @@ module.exports = (sequelize, DataType) => {
     collate: 'utf8_general_ci',
     tableName: 'user',
     timestamps: true,  // createdAt, updatedAt
-    // paranoid: true,    // deletedAt - 실제 delete를 시키지 않고 삭제일만 등록
+    paranoid: true,    // deletedAt - 실제 delete를 시키지 않고 삭제일만 등록
   });
 
   User.associate = (models) => {

@@ -26,9 +26,9 @@ app.use(express.urlencoded({ extended: false }))
 app.use('/', express.static(path.join(__dirname, 'public')))
 
 /*************** router init **************/
-// const Router = require('./routes/')
+const userRouter = require('./routes/user')
 
-// app.use('/', Router)
+app.use('/user', userRouter)
 
 /**************** error init **************/
 const _404Router = require('./routes/error/404-router')
