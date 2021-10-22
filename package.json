@@ -4,6 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "serve": "cross-env NODE_ENV=development nodemon app",
+    "build": "cross-env NODE_ENV=production nodemon app",
+    "start": "cross-env NODE_ENV=production pm2 start app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -18,6 +21,7 @@
   },
   "homepage": "https://github.com/booldook/2021-sc-app-26-sequelize#readme",
   "dependencies": {
+    "cross-env": "^7.0.3",
     "dotenv": "^10.0.0",
     "ejs": "^3.1.6",
     "express": "^4.17.1",

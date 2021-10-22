@@ -1,7 +1,7 @@
-// npm i express lodash numeral moment dotenv ejs cors mysql2 sequelize passport uuid multer http-errors express-session helmet morgan
-
 /*************** global init **************/
-require('dotenv').config()
+// require('dotenv').config()
+require('./modules/dotenv-init')()
+console.log(process.env)
 const port = process.env.PORT
 const path = require('path')
 const express = require('express')
