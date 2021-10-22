@@ -8,10 +8,10 @@ const bcrypt = require('bcrypt')
 router.get('/create', async (req, res, next) => {
   try {
     const result = await User.create({
-      userid: 'booldook',
+      userid: 'booldook3',
       userpw: await bcrypt.hash('1111', Number(process.env.BCRYPT_ROUND)),
       username: '불뚝',
-      email: 'booldook',
+      email: 'booldook@gmail.com',
     })
     res.json(result)
   }

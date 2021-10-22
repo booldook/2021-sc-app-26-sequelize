@@ -11,7 +11,7 @@ const { sequelize } = require('./models')
 require('./modules/server-init')(app, process.env.PORT)
 
 /*************** sequelize init **************/
-require('./modules/sequelize-init')(sequelize, true)
+require('./modules/sequelize-init')(sequelize)
 
 /************** view engine ***************/
 app.set('view engine', 'ejs')
