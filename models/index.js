@@ -4,7 +4,7 @@ const Sequelize = require('sequelize')
 const config = require('../config/config')
 const db = {}
 
-let sequelize = new Sequelize(config.database, config.username, config.password, config);
+const sequelize = new Sequelize(config.database, config.username, config.password, config);
 fs
   .readdirSync(__dirname)
   .filter(file => file !== 'index.js')
@@ -18,8 +18,6 @@ Object.keys(db).forEach(modelName => {
     db[modelName].associate(db);
   }
 })
-
-console.log(db);
 
 db.sequelize = sequelize
 db.Sequelize = Sequelize
